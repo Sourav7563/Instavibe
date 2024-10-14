@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Posts</title>
+<link rel="stylesheet" type="text/css" th:href="@{/profile.css}">
+</head>
+<body>
+	<h1>Post details</h1>
+	<div class="profile-details">
+		<span th:each="post:${allPosts}">
+			<p>
+				<strong>Caption:</strong> <span th:text="${post.caption}"></span>
+			</p>
+			<p>
+				<strong>Photo:</strong>
+			</p> <div class="post-image"><img th:if="${post.photoBase64}"
+			th:src="'data:image/jpeg;base64,' + ${post.photoBase64}"
+			alt="Profile Photo">
+			</div>
+		</span>
+	</div>
+</body>
+</html>
